@@ -1,0 +1,6 @@
+{
+  "name": "NaaDu",
+  "description": "An immersive cultural event discovery platform showcasing ancient living traditions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

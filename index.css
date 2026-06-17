@@ -1,0 +1,28 @@
+#hero-section {
+    /* Standard background properties */
+    background-image: url('image/naadu-hero-b.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    /* Forces the background to span 100% of the screen width */
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+#cards-row{
+   
+  display: flex;
+  justify-content: center; /* Centers the entire group of cards */
+  gap: 20px;               /* Defines an equal gap between each card */
+  padding-left: 20px;      /* Ensures a minimum safety gap on the left screen edge */
+  padding-right: 20px;     /* Ensures a minimum safety gap on the right screen edge */
+  width: 100%;             /* Takes up full width */
+  box-sizing: border-box;
+}
+#imgblr,#karnatimg,#tamilnaImg{
+  filter: blur(3px);
+}

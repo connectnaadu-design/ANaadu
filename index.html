@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NaaDu | Immersive Cultural Event Discovery Platform</title>
+
+    <!-- Social Preview Metadata (Open Graph / Facebook) -->
+    <meta property="og:title" content="NaaDu — Witness the Living Traditions" />
+    <meta property="og:description" content="Discover rare, firelit sacred rituals, epic local celebrations, and live broadcasts of traditions that disappeared from the world's map. Join the First Explorers." />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&q=80&w=1200" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NaaDu Platform" />
+
+    <!-- Twitter Preview Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="NaaDu — Witness the Living Traditions" />
+    <meta name="twitter:description" content="An immersive platform built to discover and digitally preserve India's most extraordinary rituals." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1514539079130-25950c84af65?auto=format&fit=crop&q=80&w=1200" />
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body class="bg-[#1a1310] text-[#F5EDE0] overflow-x-hidden font-sans select-none selection:bg-brand-red selection:text-white">
+    
+    <!-- STICKY NAVBAR -->
+    <header class="sticky top-0 z-40 bg-[#1a1310]/80 backdrop-blur-md border-b border-white/10 py-5 px-6 md:px-12 flex items-center justify-between transition-all">
+      <div class="flex items-center gap-3">
+        <a href="#" class="font-serif text-2xl font-bold tracking-[0.2em] text-[#E8900A] hover:text-[#F5A623] transition duration-300">
+          NAADU
+        </a>
+      </div>
+      
+      <nav class="hidden md:flex items-center gap-4 text-xs uppercase tracking-[0.2em] text-[#A89B89]">
+        <a href="#wonder-section" class="hover:text-[#E8900A] text-white/80 transition uppercase">Discover</a>
+        <div class="w-1 h-1 bg-[#E8900A] rounded-full"></div>
+        <a href="#fomo-section" class="hover:text-[#E8900A] text-white/80 transition uppercase">Experience</a>
+        <div class="w-1 h-1 bg-[#E8900A] rounded-full"></div>
+        <a href="#belonging-section" class="hover:text-[#E8900A] text-white/80 transition uppercase">Preserve</a>
+      </nav>
+
+      <button
+        id="navbar-cta-btn"
+        class="flex items-center gap-2 px-5 py-2.5 rounded-sm border border-[#E8900A]/40 hover:border-[#E8900A] text-[11px] font-mono uppercase tracking-widest text-[#E8900A] hover:bg-[#E8900A]/10 transition cursor-pointer"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[#E8900A]"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+        Join Waitlist
+      </button>
+    </header>
+
+    <main class="flex-1 w-full relative z-10">
+      
+      <!-- HERO / THE HOOK -->
+      <section id="hero-section" class="relative h-[calc(100vh-73px)] min-h-[500px] flex items-center px-6 md:px-12 lg:px-24 overflow-hidden text-left bg-[#1a1310]">
+        
+        <!-- Background Media Area -->
+        <div class="absolute inset-0 w-full h-full z-0 overflow-hidden select-none pointer-events-none">
+          <video 
+            id="hero-video"
+            autoplay 
+            loop 
+            muted 
+            playsinline
+            class="absolute inset-0 w-full h-full object-cover brightness-[0.35] transform scale-102 transition-all duration-[2000s] ease-out"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-fire-burning-slowly-in-the-dark-32152-large.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 vignette-overlay mix-blend-multiply"></div>
+          <div class="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-[#1a1310] to-transparent"></div>
+        </div>
+
+        <!-- sound volume toggle button 
+        <div class="absolute bottom-12 right-6 md:right-12 z-20 flex items-center gap-1">
+          <button
+            id="volume-toggle-btn"
+            class="flex items-center gap-2 p-2.5 rounded-sm bg-black/45 border border-white/10 hover:border-[#E8900A]/50 text-xs text-white hover:text-[#E8900A] transition-all duration-300 backdrop-blur-sm shadow-md cursor-pointer"
+            title="Unmute Atmosphere Sound"-->
+          >
+            <!-- Muted speaker icon by default 
+            <svg id="volume-icon-muted" class="w-4 h-4 text-[#A89B89]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.7.7 0 0 0-1.203-.49l-3.244 3.244H4a1 1 0 0 0-1 1v7.088a1 1 0 0 0 1 1h2.553l3.244 3.244a.7.7 0 0 0 1.203-.49v-14.6ZM22 9l-6 6M16 9l6 6"/></svg>
+            <svg id="volume-icon-playing" class="w-4 h-4 text-[#E8900A] hidden animate-bounce" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.7.7 0 0 0-1.203-.49l-3.244 3.244H4a1 1 0 0 0-1 1v7.088a1 1 0 0 0 1 1h2.553l3.244 3.244a.7.7 0 0 0 1.203-.49Z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+            <span id="volume-text" class="text-[10px] uppercase tracking-widest font-mono hidden sm:inline text-[#A89B89]">Sound Off</span>
+          </button>
+        </div>-->
+
+        <!-- Headline / Actions -->
+        <div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row md:justify-between md:items-end gap-12 relative z-10 p-0">
+          <div class="max-w-2xl space-y-6">
+            <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#F5EDE0] leading-[1.12]">
+              Every tradition has a story. <br />
+              <span class="text-[#E8900A] italic block mt-1.5 font-serif">Every story deserves to be seen.</span>
+            </h1>
+            <div class="space-y-6 text-left">
+              <p class="font-sans text-[#A89B89] text-sm sm:text-base md:text-lg font-light tracking-wide max-w-md leading-relaxed text-left">
+                Discover the world's living cultural traditions — the ones you never knew existed.
+              </p>
+              <div class="pt-2 flex flex-col sm:flex-row items-add sm:items-center gap-4">
+                <button
+                  id="hero-cta-btn"
+                  class="px-6 py-3.5 bg-[#F5EDE0] hover:bg-[#E8900A] text-[#1a1310] font-sans font-bold uppercase tracking-widest text-xs rounded-sm active:scale-[0.98] transition cursor-pointer"
+                >
+                  Join waitlist
+                </button>
+                <span class="text-[10px] font-mono tracking-wider uppercase text-[#A89B89]/70">
+                  Early access only. No transaction fee.
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Missing Moments side badge -->
+          <div class="text-left md:text-right border-l border-[#F5EDE0]/20 pl-6 md:pl-8 min-w-[240px]">
+            <p class="text-[#B0341F] text-xs md:text-sm uppercase tracking-[0.2em] mb-2 font-mono font-semibold">Missing Moments</p>
+            <p class="text-4xl md:text-5xl font-light mb-1 font-serif text-[#F5EDE0]">300+</p>
+            <p class="text-xs text-[#A89B89] leading-relaxed font-sans max-w-xs md:max-w-none">
+              Witnessed a Cultural Traditions last month.<br class="hidden md:inline" /> The rest of the world missed it.
+            </p>
+          </div>
+        </div>
+
+        <!-- Scrolling indicators -->
+        <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-15 flex flex-col items-center gap-1 opacity-70">
+          <span class="text-[9px] font-mono uppercase tracking-widest text-[#A89B89] animate-pulse">
+            Scroll down to witness
+          </span>
+          <div class="animate-bounce">
+            <svg class="w-5 h-5 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- WONDER SECTION (MARQUEE) -->
+      <section id="wonder-section" class="py-24 bg-gradient-to-b from-[#1a1310] via-black/40 to-[#1d1613] overflow-hidden relative border-t border-b border-white/5">
+        <div class="absolute right-10 top-20 w-80 h-80 rounded-full blur-[120px] bg-[#E8900A]/10 pointer-events-none"></div>
+        <div class="absolute left-10 bottom-20 w-[400px] h-[400px] rounded-full blur-[150px] bg-[#B0341F]/5 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mb-12 relative z-10">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="h-[1px] w-12 bg-[#E8900A]"></div>
+            <span class="text-xs uppercase tracking-[0.2em] font-medium text-[#E8900A]">
+              The Living Heritage
+            </span>
+          </div>
+          <h2 class="font-serif text-3xl md:text-5xl text-[#F5EDE0] max-w-2xl leading-tight font-normal">
+            You've been missing this.
+          </h2>
+          <p class="text-xs md:text-sm text-[#A89B89] max-w-lg mt-3 font-sans leading-relaxed">
+            While modern cities speed ahead, ancient traditions of devotion, ritual, and sheer human wonder carry on in the quiet red soil of the hinterlands. Click on any tradition to peer closer.
+          </p>
+        </div>
+
+        <!-- Marquee Track 1 (Forward Scroll) -->
+        <div class="relative flex items-center w-full overflow-hidden py-4 select-none">
+  <div id="cards-row" class="flex gap-6 w-full justify-center">
+    
+    <!-- Card 1 --> <div id="karnatdiv">
+<div class="relative group w-[300px] h-[400px] rounded-lg overflow-hidden shadow-lg">
+      <img
+        src="image/kambala-festival.jpg"
+        alt="Bhoota Kola"
+        id="karnatimg"
+        class="absolute inset-0 w-full h-full object-cover brightness-[0.55] group-hover:scale-105 transition duration-700 ease-out"
+        referrerpolicy="no-referrer"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#130d0b] via-[#1a1310]/40 to-transparent"></div>
+      <div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+        
+        <span class="flex items-center gap-1.5 text-[9px] font-mono tracking-widest uppercase bg-[#B0341F] text-brand-text px-2 md:px-2.5 py-1 rounded-sm shadow-sm font-semibold animate-pulse">
+          <span class="w-1.5 h-1.5 rounded-full bg-white block"></span>
+          Upcoming
+        </span>
+      </div>
+      <div class="absolute bottom-4 left-4 right-4 z-10 transition">
+       
+        <h3 class="font-serif text-lg md:text-xl text-brand-text font-normal group-hover:text-[#E8900A] transition-colors">
+          Karnataka
+        </h3>
+       
+      </div>
+    </div>
+    </div>
+    
+
+    <!-- Card 2 --> 
+     <div id="imageblurry">
+    <div class="relative group w-[300px] h-[400px] rounded-lg overflow-hidden shadow-lg bg-gray-800 flex items-center justify-center text-white">
+     <img
+        src="image/snakeboat.jpg"
+        id="imgblr"
+        alt="Bhoota Kola"
+        class="absolute inset-0 w-full h-full object-cover brightness-[0.55] group-hover:scale-105 transition duration-700 ease-out "
+        referrerpolicy="no-referrer"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#130d0b] via-[#1a1310]/40 to-transparent"></div>
+      <div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+        
+        <span class="flex items-center gap-1.5 text-[9px] font-mono tracking-widest uppercase bg-[#B0341F] text-brand-text px-2 md:px-2.5 py-1 rounded-sm shadow-sm font-semibold animate-pulse">
+          <span class="w-1.5 h-1.5 rounded-full bg-white block"></span>
+          Upcoming
+        </span>
+      </div>
+      <div class="absolute bottom-4 left-4 right-4 z-10 transition">
+       
+        <h3 class="font-serif text-lg md:text-xl text-brand-text font-normal group-hover:text-[#E8900A] transition-colors">
+          Kerala
+        </h3>
+       
+      </div>
+    </div>
+    </div>
+    <!-- Card 3 -->
+     <div id="tamilnaDiv">
+       <div class="relative group w-[300px] h-[400px] rounded-lg overflow-hidden shadow-lg bg-gray-700 flex items-center justify-center text-white">
+      <img
+        src="image/jalli.jpg"
+        id="tamilnaImg"
+        alt="Bhoota Kola"
+        class="absolute inset-0 w-full h-full object-cover brightness-[0.55] group-hover:scale-105 transition duration-700 ease-out"
+        referrerpolicy="no-referrer"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-[#130d0b] via-[#1a1310]/40 to-transparent"></div>
+      <div class="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+        
+        <span class="flex items-center gap-1.5 text-[9px] font-mono tracking-widest uppercase bg-[#B0341F] text-brand-text px-2 md:px-2.5 py-1 rounded-sm shadow-sm font-semibold animate-pulse">
+          <span class="w-1.5 h-1.5 rounded-full bg-white block"></span>
+          Upcoming
+        </span>
+      </div>
+      <div class="absolute bottom-4 left-4 right-4 z-10 transition">
+       
+        <h3 class="font-serif text-lg md:text-xl text-brand-text font-normal group-hover:text-[#E8900A] transition-colors">
+          Tamilnadu
+        </h3>
+       
+      </div>
+    </div>
+     </div>
+   
+<div class="flex flex-col justify-between min-h-[400px] p-6  rounded-lg">
+  
+  <div>
+    <h2 class="text-xl font-bold text-white"></h2>
+  </div>
+
+  <div class="text-right">
+    <h3 class="text-xl font-serif text-[#E8900A]">..... and More</h3>
+  </div>
+
+</div></div>
+  </div>
+</div>
+
+
+        <!-- Marquee Track 2 (Reverse Scroll) -->
+        <div class="relative flex items-center w-full overflow-hidden py-4 select-none">
+          <div id="marquee-track-2" class="flex gap-4 min-w-full shrink-0 animate-marquee-reverse hover:[animation-play-state:paused]">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+      </section>
+
+      <!-- FOMO / STATS SECTION -->
+      <section id="fomo-section" class="py-24 bg-black text-[#F5EDE0] relative overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 firelight-glow pointer-events-none"></div>
+        <div>
+         <div class="text-center">
+            <div class="lg:col-span-5 space-y-6">
+              <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#F5EDE0]  leading-[1.12]">
+                This Isn't Just Discovery. It's Active<span class="text-[#E8900A] font-serif text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight leading-[1.12]"> Preservation.</span>
+              </h2>
+              <p class="font-serif text-base text-brand-text font-normal text-3xl sm:text-3xl md:text-3xl">
+                Every culture has stories, traditions, and spiritual rituals worth sharing.
+              </p>
+              <p class="font-serif text-base text-brand-text font-normal text-3xl sm:text-3xl md:text-3xl"> NaaDu is building the world's primary living archive of human culture</p>
+              <p class="font-serif text-base text-brand-text font-normal text-3xl sm:text-3xl md:text-3xl">powered and maintained directly by regional guilds and practitioners.</p>
+               <p class="text-[#E8900A] "><strong>
+                Be one of the first creators and observers to help shape this lineage. Preserve the flames before they quietly flicker out.
+              </strong></p>
+                <p class="text-[#E8900A]"><strong>Preserve the flames before they quietly flicker out.</strong>
+                 
+              </p>
+            </div>
+
+            <!-- Value props dynamic grid -->
+            
+          </div>
+        </div>
+        <div class="absolute -left-40 top-1/3 w-[600px] h-[600px] rounded-full blur-[180px] bg-[#B0341F]/10 pointer-events-none"></div>
+
+
+        <div class="px-6 py-12 flex justify-center w-full">
+  <div id="value-props-grid" class="w-full max-w-4xl grid grid-cols-1 sm:grid-cols-3 gap-6">
+      
+      </div>
+</div>
+        <!--  <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-left">
+          <div class="flex items-center gap-4 mb-12">
+            <div class="h-[1px] w-12 bg-[#E8900A]">
+             
+            </div>
+          </div>
+<div class="div">
+   <div id="value-props-grid" class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-5">
+              Dynamically populated 
+            </div>
+</div>
+           Grid populated dynamically by script 
+         
+        </div>-->
+      </section>
+
+      <!-- BELONGING / VALUE PROPS -->
+      <section id="belonging-section" class="py-24 bg-[#1a1310] relative text-[#F5EDE0] overflow-hidden border-b border-white/5">
+        <div class="absolute right-0 bottom-0 w-96 h-96 bg-[#B0341F]/5 blur-[120px] pointer-events-none rounded-full"></div>
+        <div class="absolute left-1/4 top-1/4 w-80 h-80 bg-[#E8900A]/10 blur-[150px] pointer-events-none rounded-full"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-[1px] w-12 bg-[#E8900A]"></div>
+            <span class="text-xs uppercase tracking-[0.2em] font-medium text-[#E8900A]">The Guild Creed</span>
+          </div>
+
+          <!-- Poetic quote box -->
+          <div class="border border-white/10 p-8 md:p-12 text-center bg-[#1a1310]/50 mb-16 rounded-sm max-w-4xl mx-auto shadow-sm">
+            <p class="font-serif text-xl md:text-2xl mb-4 text-[#F5EDE0] leading-relaxed font-normal">
+              "We do not inherit our traditions from our ancestors. <br class="hidden md:inline" /> We borrow them from our children."
+            </p>
+            <p class="text-xs opacity-50 uppercase tracking-[0.2em] font-mono text-[#E8900A] font-bold">&mdash; Ancient Proverb</p>
+          </div>
+
+          <!-- Feature Grid -->
+        
+        </div>
+      </section>
+
+      <!-- WAITLIST FORM -->
+      <section id="waitlist-section" class="py-24 bg-[#1d1613] relative overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 firelight-glow pointer-events-none"></div>
+        <div class="absolute right-1/4 top-10 w-[500px] h-[500px] rounded-full bg-[#E8900A]/5 blur-[200px] pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6 md:px-12 relative z-10">
+          <div class="flex items-center gap-4 mb-10">
+            <div class="h-[1px] w-12 bg-[#E8900A]"></div>
+            <span class="text-xs uppercase tracking-[0.2em] font-medium text-[#E8900A]">Join the Circle</span>
+          </div>
+
+          <div class="text-left max-w-3xl space-y-4 mb-16">
+            <h2 class="font-serif text-3xl md:text-5xl text-brand-text leading-tight font-normal">
+              Become a Founding Guardian
+            </h2>
+            <p class="text-xs md:text-sm text-[#A89B89] font-sans leading-relaxed max-w-2xl">
+              We are starting with India's most extraordinary, hidden cultural experiences. Secure your permanent low-badge explorer status and enable Direct-to-Artist broadcasting with a fully-refundable ₹199 founding member fee, or join the simple free waitlist.
+            </p>
+
+            <!-- Live badge counts -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2.5 bg-black/45 border border-white/10 rounded-sm shadow-sm mt-2">
+              <svg class="w-3.5 h-3.5 text-[#E8900A] animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              <span class="text-xs font-mono tracking-wider text-white/90">
+                <span id="explorers-count-el" class="font-bold text-[#E8900A]">111</span> guardians have already crossed the threshold
+              </span>
+            </div>
+          </div>
+
+          <!-- Switchable Container (Form vs. Success Wallet Pass) -->
+          <div id="waitlist-card-container">
+            
+            <!-- THE SIGN-UP FORM (Visually shown by default) -->
+            <div id="waitlist-form-layout" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              
+              <!-- Left column options -->
+              <div class="lg:col-span-7 space-y-5">
+                
+                <!-- Free Waitlist Plan Card -->
+                <div id="plan-free-card" class="relative p-6 rounded-sm border cursor-pointer transition-all duration-300 flex items-start gap-4 border-brand-gold/50 bg-black/60 shadow-md">
+                  <div id="radio-free" class="w-4 h-4 rounded-full border flex items-center justify-center shrink-0 mt-1.5 border-[#E8900A] bg-[#E8900A]/25">
+                    <div class="w-2 h-2 bg-[#E8900A] rounded-full"></div>
+                  </div>
+                  <div class="space-y-1.5 flex-1 select-none">
+                    <div class="flex justify-between items-center">
+                      <h3 class="font-serif text-lg text-brand-text font-normal">Basic Waitlist</h3>
+                      <span class="text-xs font-mono text-[#A89B89] font-bold tracking-widest">FREE</span>
+                    </div>
+                    <p class="text-[11px] text-[#A89B89] leading-relaxed">
+                      Secure standard registration spot. Receive monthly story digests, regional alerts on upcoming ritual events, and basic livestream access.
+                    </p>
+                    <span class="text-[10px] font-mono text-[#A89B89]/70 block mt-1.5">&mdash; Standard queue speeds apply</span>
+                  </div>
+                </div>
+
+                <!-- Founding Guardian Plan Card -->
+                <div id="plan-founding-card" class="relative p-6 rounded-sm border cursor-pointer transition-all duration-300 flex items-start gap-4 border-white/5 bg-[#18110e]/40 hover:border-white/15">
+                  <div class="absolute -top-3 right-6 bg-[#E8900A] text-[9px] font-mono uppercase tracking-[0.15em] text-[#1a1310] px-3.5 py-1 rounded-sm font-bold shadow-md">
+                    Skip the Line
+                  </div>
+                  <div id="radio-founding" class="w-4 h-4 rounded-full border border-white/20 flex items-center justify-center shrink-0 mt-1.5">
+                    <div class="w-2 h-2 bg-[#E8900A] rounded-full hidden"></div>
+                  </div>
+                  <div class="space-y-2 flex-1 select-none">
+                    <div class="flex justify-between items-center">
+                      <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 13L2 9Z"/><path d="M11 3 8 9l3 13h2l3-13-3-6Z"/><path d="M2 9h20"/></svg>
+                        <h3 class="font-serif text-lg text-[#F5EDE0] font-normal">Founding Member Circle</h3>
+                      </div>
+                      <span class="text-xs font-mono text-[#E8900A] font-bold tracking-wider">₹199 <span class="text-[10px] text-[#A89B89] font-sans font-normal uppercase">once</span></span>
+                    </div>
+                    <p class="text-[11px] text-[#A89B89] leading-relaxed font-sans">
+                      Skip standard waitlists entirely. Unlock instant priority beta access, direct messaging filters, and customized "Lineage Guardian" credentials.
+                    </p>
+                    <ul class="text-[11px] space-y-1.5 text-white/90 font-sans pt-1">
+                      <li class="flex items-center gap-2 text-[#F5EDE0]">
+                        <svg class="w-3 h-3 text-[#E8900A] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+                        Skip the line priority on beta client launches
+                      </li>
+                      <li class="flex items-center gap-2 text-[#F5EDE0]">
+                        <svg class="w-3 h-3 text-[#E8900A] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+                        Founding credentials & high-fidelity digital records
+                      </li>
+                      <li class="flex items-center gap-2 text-[#F5EDE0]">
+                        <svg class="w-3 h-3 text-[#E8900A] shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+                        Help finance regional guilds in coastal districts directly
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Right form entries -->
+              <div class="lg:col-span-5 bg-black/40 p-6 md:p-8 rounded-sm border border-white/10 shadow-lg space-y-5">
+                <div class="text-left">
+                  <h3 class="font-serif text-lg text-brand-text font-normal">Enter details</h3>
+                  <p class="text-[11px] text-[#A89B89] mt-0.5">Please provide valid credentials to map your node</p>
+                </div>
+
+                <form id="waitlist-inputs-form" class="space-y-4">
+                  <div>
+                    <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Your Full Name</label>
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="form-input-name"
+                        required
+                        placeholder="e.g., Devaraj Bhat"
+                        class="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-[#F5EDE0] outline-none transition"
+                      />
+                      <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#A89B89]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Email Address</label>
+                    <div class="relative">
+                      <input
+                        type="email"
+                        id="form-input-email"
+                        required
+                        placeholder="e.g., guardian@nadu.com"
+                        class="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-[#F5EDE0] outline-none transition"
+                      />
+                      <svg class="absolute left-3.5 top-3.5 w-4 h-4 text-[#A89B89]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Phone Number (Optional)</label>
+                    <div class="relative">
+                      <input
+                        type="tel"
+                        id="form-input-phone"
+                        placeholder="e.g., +91 98765 43210"
+                        class="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-[#F5EDE0] outline-none transition"
+                      />
+                      <svg class="absolute left-3.5 top-3 w-4 h-4 text-[#A89B89]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 9.24Z"/></svg>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    id="form-submit-btn"
+                    class="w-full py-3.5 mt-2 rounded-sm text-[11px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition duration-350 cursor-pointer bg-brand-red text-white hover:bg-[#8e1d09]"
+                  >
+                    <span id="submit-btn-text">Join Free Waitlist</span>
+                    <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </button>
+
+                  <p class="text-[10px] text-center text-[#A89B89] leading-relaxed font-sans opacity-80 pt-1">
+                    Your credentials are fully secure and stored in the localized node. Early dispatch delivered instantly.
+                  </p>
+                </form>
+              </div>
+
+            </div>
+
+            <!-- THE SUCCESS STATE WALLET CARD VIEW (Hidden by default) -->
+            <div id="waitlist-success-layout" class="max-w-2xl mx-auto text-center bg-black/55 p-10 md:p-12 rounded-sm border border-[#E8900A]/40 shadow-lg relative hidden">
+              
+              <!-- Confetti Sparks overlay -->
+              <div id="confetti-container" class="absolute inset-0 pointer-events-none overflow-hidden rounded-sm">
+                <!-- Burst items created on execution -->
+              </div>
+
+              <div class="relative z-10 space-y-6">
+                <div class="mx-auto w-12 h-12 bg-white/5 border border-[#E8900A] flex items-center justify-center rounded-sm">
+                  <svg class="w-5 h-5 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34M12 2a4 4 0 0 1 4 4v5a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4Z"/></svg>
+                </div>
+
+                <div class="space-y-2">
+                  <h3 class="font-serif text-2xl md:text-3xl text-brand-text font-normal">
+                    You're in. Welcome to the line.
+                  </h3>
+                  <p class="text-[10px] text-[#E8900A] uppercase tracking-[0.2em] font-mono font-bold">
+                    Lineage Node Activated
+                  </p>
+                </div>
+
+                <p class="text-xs md:text-sm text-[#A89B89] leading-relaxed max-w-lg mx-auto font-sans">
+                  Thank you, <span id="success-user-name" class="text-brand-text font-semibold">Guardian</span>. We've mapped your connection in the central repository. You have been recorded as guardian <span id="success-member-id" class="text-brand-text font-bold font-mono">#1483</span>.
+                </p>
+
+                <!-- Digital pass ticket representation -->
+                <div class="bg-[#1e1613] p-6 rounded-sm border border-white/10 max-w-md mx-auto text-left relative overflow-hidden shadow-xl">
+                  <div class="absolute right-0 top-0 w-32 h-32 bg-[#E8900A]/5 blur-xl rounded-full"></div>
+                  
+                  <div class="flex justify-between items-start border-b border-white/10 pb-4 mb-4">
+                    <div>
+                      <h4 class="font-serif font-bold text-[#F5EDE0] text-sm md:text-base">NaaDu Artifact Code</h4>
+                      <p class="text-[9px] text-[#A89B89] font-mono uppercase tracking-[0.15em] mt-1">ESTABLISHED 2026</p>
+                    </div>
+                    <span id="success-badge-badge" class="text-[9px] font-mono uppercase tracking-wider bg-white/10 border border-white/10 text-[#E8900A] px-3 py-1 rounded-sm">
+                      Explorer
+                    </span>
+                  </div>
+
+                  <div class="space-y-3 font-sans">
+                    <div class="flex justify-between">
+                      <span class="text-[10px] text-[#A89B89] uppercase tracking-[0.1em] font-mono">Guardian:</span>
+                      <span id="success-card-name" class="text-xs text-brand-text font-medium">Devaraj Bhat</span>
+                    </div>
+                    <div class="flex justify-between">
+                      <span class="text-[10px] text-[#A89B89] uppercase tracking-[0.1em] font-mono">Registered node:</span>
+                      <span id="success-card-email" class="text-xs text-brand-text truncate max-w-xs">guardian@nadu.com</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-black/40 px-3 py-2 border border-white/5 rounded-sm">
+                      <span class="text-[9px] text-[#E8900A] uppercase tracking-widest font-mono">Lineage Index:</span>
+                      <span id="success-card-token" class="text-xs text-brand-text font-mono font-bold">
+                        NADU-EXP-2483
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-xs text-[#A89B89] max-w-sm mx-auto leading-relaxed">
+                  An encrypted digital dispatch detailing our mapped beta outputs and localized guidelines has been directed to your email.
+                </p>
+
+                <div class="flex justify-center gap-3 pt-2">
+                  <button
+                    id="success-add-another-btn"
+                    class="px-5 py-2.5 rounded-sm border border-white/10 hover:border-[#E8900A] text-[10px] font-mono uppercase tracking-widest text-[#F5EDE0] hover:text-white transition cursor-pointer"
+                  >
+                    Add another partner
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- IMMERSIVE FOOTER -->
+    <footer class="bg-[#140d0a] text-brand-text py-16 px-6 md:px-12 border-t border-brand-red/10 relative z-10">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        
+        <div class="md:col-span-8 space-y-4">
+          <div class="flex items-center gap-2">
+            <span class="font-serif text-2xl font-bold tracking-widest text-white">NaaDu</span>
+            <span class="text-white/20">|</span>
+            <span class="text-[9px] font-mono tracking-widest text-[#E8900A] uppercase">Cultural Preservation Guild</span>
+          </div>
+          
+          <p class="text-xs md:text-sm text-[#A89B89] max-w-xl font-serif italic leading-relaxed">
+            </p>
+        </div>
+
+        <div class="md:col-span-4 flex flex-col items-start md:items-end gap-4 space-y-1">
+          <div class="flex items-center gap-4">
+            <a 
+              href="" 
+              target="_blank" 
+              rel="noreferrer" 
+              class="p-2.5 rounded-full bg-white/5 hover:bg-[#E8900A]/15 text-[#A89B89] hover:text-[#E8900A] transition duration-300 border border-white/5"
+            >
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a 
+              href="" 
+              target="_blank" 
+              rel="noreferrer" 
+              class="p-2.5 rounded-full bg-white/5 hover:bg-[#B0341F]/15 text-[#A89B89] hover:text-[#B0341F] transition duration-300 border border-white/5"
+            >
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17z"/><polygon points="10 15 15 12 10 9"/></svg>
+            </a>
+          </div>
+          
+          <p class="text-[10px] font-mono text-[#A89B89]/60">
+            &copy; 2026 NaaDu App. All rights preserved under tribal consensus.
+          </p>
+        </div>
+
+      </div>
+    </footer>
+
+
+    <!-- MODAL 1: CULTURAL EVENT DETAIL DIALOG (Hidden by default) -->
+    <div id="event-dialog-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm hidden transition-opacity duration-350 opacity-0">
+      <div class="relative w-full max-w-xl rounded-sm overflow-hidden bg-[#241a16] border border-white/10 shadow-2xl transition-transform duration-350 scale-95">
+        <div class="relative h-64 md:h-80 w-full">
+          <img
+            id="dialog-event-img"
+            src="https://images.unsplash.com/photo-1514539079130-25950c84af65"
+            alt="Event Detail image"
+            class="w-full h-full object-cover brightness-[0.7]"
+            referrerpolicy="no-referrer"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#241a16] via-transparent to-black/30"></div>
+          <button
+            type="button"
+            id="event-dialog-close-btn"
+            class="absolute top-4 right-4 bg-black/60 hover:bg-black/85 border border-white/10 text-white rounded-full p-2 transition cursor-pointer"
+          >
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        
+        <div class="p-6 md:p-8 space-y-4 text-left">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="flex items-center gap-1 text-[11px] font-mono text-[#E8900A] uppercase tracking-wider bg-[#E8900A]/10 px-3 py-1 rounded-sm border border-[#E8900A]/20">
+              <svg class="w-3.5 h-3.5 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              <span id="dialog-event-location">Udupi, Karnataka</span>
+            </span>
+            <span class="flex items-center gap-1 text-[11px] font-mono text-[#F5EDE0] uppercase bg-[#B0341F]/20 px-3 py-1 rounded-sm border border-[#B0341F]/30">
+              <svg class="w-3.5 h-3.5 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span id="dialog-event-season">December - April</span>
+            </span>
+          </div>
+
+          <h3 id="dialog-event-name" class="font-serif text-3xl text-brand-text font-normal text-[#F5EDE0]">
+            Bhoota Kola
+          </h3>
+          
+          <p id="dialog-event-description" class="text-[#A89B89] text-sm leading-relaxed font-sans">
+            An ancient nocturnal spirit-worship ritual where oracles channel demigods amidst high-energy drums...
+          </p>
+
+          <div class="bg-[#1a1310] p-4 rounded-sm border border-white/5 flex items-start gap-3">
+            <svg class="w-5 h-5 text-[#E8900A] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <div class="text-xs">
+              <p class="font-semibold text-brand-text mb-1 uppercase tracking-wider font-mono text-[10px]">Ritual Observance Protocol</p>
+              <p class="text-[#A89B89] leading-normal font-sans text-[11px]">
+                NaaDu respects local custom mandates. Authentic viewing guides and spiritual history modules accompany every broadcast to prevent outside commercialization.
+              </p>
+            </div>
+          </div>
+
+          <div class="pt-2 flex justify-end">
+            <button
+              id="dialog-support-btn"
+              class="flex items-center gap-2 px-5 py-2.5 bg-[#F5EDE0] hover:bg-[#E8900A] text-[#1a1310] rounded-sm text-xs tracking-wider uppercase font-mono font-bold transition cursor-pointer"
+            >
+              <svg class="w-4 h-4 text-[#B0341F]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+              Support & Join Waitlist
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- MODAL 2: SECURE PAYMENT GATEWAY MODAL (Hidden by default) -->
+    <div id="payment-dialog-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-md hidden transition-opacity duration-350 opacity-0">
+      <div class="relative w-full max-w-md overflow-hidden rounded-sm bg-[#1a1310] border border-white/10 shadow-2xl transition-transform duration-350 scale-95">
+        
+        <!-- Header banner -->
+        <div class="bg-gradient-to-r from-[#B0341F] to-[#E8900A] p-4 text-center flex items-center justify-between">
+          <div class="flex items-center gap-2 text-white">
+            <svg class="w-4 h-4 text-[#E8900A] animate-pulse" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275Z"/></svg>
+            <span class="font-serif tracking-wider text-xs uppercase font-semibold">NaaDu Founding Circle</span>
+          </div>
+          <button 
+            id="payment-modal-close-btn"
+            class="text-white/80 hover:text-white text-[10px] font-mono uppercase tracking-widest bg-black/25 hover:bg-black/45 px-3 py-1.5 rounded-sm transition cursor-pointer"
+          >
+            Cancel
+          </button>
+        </div>
+
+        <div class="p-6">
+          
+          <!-- STEP 1: CHOOSE AND FILL METHOD -->
+          <div id="payment-step-form">
+            <div class="mb-6 text-left">
+              <h3 class="font-serif text-2xl text-brand-[#F5EDE0] font-normal">₹199 One-time Fee</h3>
+              <p class="text-xs text-[#A89B89] mt-1 leading-relaxed">Initiating founding tier allocation for <span id="payment-user-name" class="text-white font-semibold">Guardian</span></p>
+            </div>
+
+            <!-- Tabs selector -->
+            <div class="flex gap-2 mb-4 bg-black/35 p-1 rounded-sm border border-white/5">
+              <button
+                type="button"
+                id="tab-upi"
+                class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-sm text-[10px] uppercase tracking-widest font-bold transition bg-[#B0341F] text-white shadow-md cursor-pointer"
+              >
+                <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="5" y="5" rx="1"/><rect width="4" height="4" x="5" y="5"/><rect width="4" height="4" x="15" y="5"/><rect width="4" height="4" x="5" y="15"/></svg>
+                UPI / QR Code
+              </button>
+              <button
+                type="button"
+                id="tab-card"
+                class="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-sm text-[10px] uppercase tracking-widest font-bold transition text-[#A89B89] hover:text-[#F5EDE0] hover:bg-white/5 cursor-pointer"
+              >
+                <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                Credit/Debit Card
+              </button>
+            </div>
+
+            <form id="payment-sub-form" class="space-y-4">
+              
+              <!-- UPI Inner Screen -->
+              <div id="payment-upi-layout" class="space-y-3">
+                <div>
+                  <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Enter UPI ID</label>
+                  <input
+                    type="text"
+                    id="input-upi-id"
+                    placeholder="e.g., karnataka-guild@okhdfcbank"
+                    class="w-full px-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-white outline-none transition"
+                  />
+                </div>
+                
+                <div class="bg-black/30 p-4 rounded-sm border border-white/5 text-center">
+                  <span class="text-[9px] text-[#E8900A] font-mono uppercase tracking-[0.15em] font-bold block mb-3">OR PAY BY SCANNING INSTANTLY</span>
+                  <div class="mx-auto bg-white p-2.5 w-32 h-32 rounded-sm flex items-center justify-center border border-white/5">
+                    <div class="relative w-full h-full flex flex-col justify-between p-1 opacity-90">
+                      <div class="flex justify-between">
+                        <div class="w-6 h-6 border-2 border-black bg-black rounded-[1px]"></div>
+                        <div class="w-6 h-6 border-2 border-black bg-black rounded-[1px]"></div>
+                      </div>
+                      <div class="flex justify-center items-center h-4">
+                        <span class="text-[9px] text-[#B0341F] font-bold tracking-tighter">NaaDu</span>
+                      </div>
+                      <div class="flex justify-between">
+                        <div class="w-6 h-6 border-2 border-black bg-black rounded-[1px]"></div>
+                        <div class="w-4 h-4 bg-black/80 rounded-[1px] m-1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-[10px] text-[#A89B89] mt-3">Scan with GPay, PhonePe, Paytm, or BHIM</p>
+                </div>
+              </div>
+
+              <!-- CARD Inner Screen (Hidden by default) -->
+              <div id="payment-card-layout" class="space-y-3 hidden">
+                <div>
+                  <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Card Number</label>
+                  <div class="relative">
+                    <input
+                      type="text"
+                      id="input-card-number"
+                      placeholder="4111 8827 9901 2341"
+                      class="w-full pl-10 pr-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-white outline-none transition font-mono"
+                    />
+                    <svg class="absolute left-3 top-3 w-4 h-4 text-[#A89B89]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">Expiry Date</label>
+                    <input
+                      type="text"
+                      id="input-card-expiry"
+                      placeholder="MM/YY"
+                      maxlength="5"
+                      class="w-full px-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-white outline-none transition font-mono text-center"
+                    />
+                  </div>
+                  <div>
+                    <label class="block text-[9px] uppercase tracking-[0.15em] text-[#A89B89] font-semibold mb-1">CVV</label>
+                    <input
+                      type="password"
+                      id="input-card-cvv"
+                      placeholder="•••"
+                      maxlength="3"
+                      class="w-full px-4 py-2.5 bg-black/40 border border-white/10 focus:border-[#E8900A] rounded-sm text-xs text-white outline-none transition font-mono text-center"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Error warnings box -->
+              <div id="payment-error" class="flex items-center gap-2 p-3 bg-red-950/40 border border-red-800/30 rounded-sm text-xs text-red-300 hidden">
+                <svg class="w-4 h-4 text-red-400 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                <span id="payment-error-msg">Please enter valid specs</span>
+              </div>
+
+              <button
+                type="submit"
+                id="payment-confirm-btn"
+                class="w-full py-3 bg-[#F5EDE0] hover:bg-[#E8900A] text-[#1a1310] font-sans font-bold uppercase tracking-widest rounded-sm text-xs transition-all duration-300 shadow-md cursor-pointer"
+              >
+                Confirm & Pay ₹199
+              </button>
+
+              <div class="flex items-center justify-center gap-3 text-[10px] text-[#A89B89] pt-2 border-t border-white/5 font-mono">
+                <span class="flex items-center gap-1">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  256-bit SSL
+                </span>
+                <span class="text-white/10">•</span>
+                <span class="flex items-center gap-1">
+                  <svg class="w-3 h-3 text-emerald-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 11 2 2 4-4"/></svg>
+                  PCI Compliant
+                </span>
+              </div>
+
+            </form>
+          </div>
+
+          <!-- STEP 2: PROCESSING (Hidden by default) -->
+          <div id="payment-step-processing" class="flex flex-col items-center justify-center py-12 text-center hidden">
+            <svg class="w-8 h-8 text-[#E8900A] animate-spin mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>
+            <h4 class="font-serif text-lg text-[#F5EDE0]">Verifying Lineage Dispatch...</h4>
+            <p class="text-xs text-[#A89B89] mt-2 max-w-xs leading-relaxed">
+              Routing authentication token directly to the central gateway database.
+            </p>
+            <div class="w-48 bg-black/40 h-1 mt-6 overflow-hidden border border-white/5 rounded-sm">
+              <div id="processing-progressbar" class="bg-[#E8900A] h-full w-0 transition-all duration-[3000ms] ease-out"></div>
+            </div>
+          </div>
+
+          <!-- STEP 3: SUCCESS CONFIRMATION (Hidden by default) -->
+          <div id="payment-step-success" class="flex flex-col items-center text-center py-6 hidden">
+            <div class="w-12 h-12 bg-white/5 rounded-sm border border-[#E8900A] flex items-center justify-center mb-4">
+              <svg class="w-6 h-6 text-[#E8900A]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h4 class="font-serif text-2xl text-brand-text">Payment Confirmed</h4>
+            <p class="text-[10px] text-[#E8900A] font-mono uppercase mt-1 tracking-widest font-bold">
+              Member #1483 Registered
+            </p>
+            
+            <div class="bg-black/30 p-4 rounded-sm border border-white/10 my-5 w-full space-y-2.5 text-left font-sans">
+              <div class="flex justify-between text-xs">
+                <span class="text-[#A89B89]">Guardian:</span>
+                <span id="p-success-name" class="text-white font-medium">Devaraj Bhat</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-[#A89B89]">Digital Access Code:</span>
+                <span id="p-success-code" class="text-white font-mono text-xs">NADU-FNDR-2483</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-[#A89B89]">Credential Node:</span>
+                <span class="text-[#E8900A] font-mono text-xs font-semibold">FOUNDING ARCHIVE GUARDIAN</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-[#A89B89] leading-relaxed max-w-sm">
+              We have mapped your credentials safely. Welcome to the lineage of preservation.
+            </p>
+
+            <button
+              id="payment-success-return-btn"
+              class="mt-6 px-6 py-2.5 bg-brand-red text-white rounded-sm text-xs font-bold uppercase tracking-widest transition duration-300 hover:bg-[#8e1d09] cursor-pointer"
+            >
+              Return to Sanctuary
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MAIN CORE SCRIPT LINKS -->
+    <script type="module"  src="/src/main.ts" ></script>
+  </body>
+</html>
